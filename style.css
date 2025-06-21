@@ -1,0 +1,139 @@
+:root {
+  --bg-gradient: linear-gradient(136deg, #636e72 0%, #2d3436 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+button {
+  border-radius: 0.6rem;
+  border: none;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+button:hover {
+  margin: -2.5px 0 2.5px;
+  opacity: 1;
+  offset: 55%;
+  transition: 0.33s ease;
+}
+input {
+  border-radius: 0.6rem;
+  border: 2px solid #ddd;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #636e72;
+}
+
+.app {
+  max-width: 35rem;
+  padding: 20px;
+  margin: auto;
+  border-radius: 1.3rem;
+  background: #fff;
+}
+
+.app h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.add-item {
+  width: 100%;
+  height: 2.6rem;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-item button {
+  background: var(--bg-gradient);
+  height: 100%;
+  width: 20%;
+}
+
+.add-item input {
+  height: 100%;
+  flex: 1;
+  padding: 1rem;
+}
+
+#search {
+  width: 100%;
+  height: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.grocery-list {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+  min-height: 200px;
+}
+
+.grocery-list .top {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.top p {
+  font-weight: bold;
+}
+
+.grocery-list button {
+  width: 4.2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: #dc3545;
+}
+
+.items {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  background-color: #fff;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-summary {
+  width: 100%;
+  height: 2.5rem;
+  background: #6ff0c3;
+  padding-left: 1rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.none {
+  text-align: center;
+  font-size: 1.2rem;
+  padding-top: 1.5rem;
+}
+
+.grocery-list .hidden {
+  display: none;
+}

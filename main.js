@@ -19,6 +19,7 @@ let groceryList = [];
 const updateDisplay = function () {
   if (groceryList.length === 0) {
     groceryListarr.innerHTML = '<div class="none">No items at the moment</div>';
+    document.querySelector(".top").classList.add("hidden");
   } else {
     document.querySelector(".top").classList.remove("hidden");
     groceryListarr.innerHTML = "";

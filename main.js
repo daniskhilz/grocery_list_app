@@ -7,6 +7,7 @@ const groceryListBody = document.querySelector(".grocery-list");
 const groceryListarr = document.querySelector(".item-arr");
 const itemCount = document.querySelectorAll(".item-count");
 let groceryList = [];
+let filteredList = [];
 
 // initialize display
 (function () {
@@ -43,6 +44,34 @@ const updateDisplay = function () {
 };
 
 updateDisplay();
+
+// filter function
+const filterList = function () {
+  const searchValue = searchInput.value.toLowerCase();
+  filteredList = groceryList.filter((item) =>
+    item.toLowerCase().includes(searchValue)
+  );
+
+  if (filteredList.length === 0) {
+    groceryListarr.innerHTML = '<div class="none">No items found</div>';
+  } else {
+    groceryListarr.innerHTML = "";
+    for (const [index, item] of filteredList.entries()) {
+      const itemHTML = document.createElement("div");
+      itemHTML.classList.add("items");
+      itemHTML.id = `${index + 1}`;
+      itemHTML.innerHTML = `
+              <p>${item}</p>
+              <button class="remove" onclick = "removeFn(${groceryList.indexOf(
+                item
+              )})">Remove</button>`;
+      groceryListarr.appendChild(itemHTML);
+    }
+  }
+};
+
+// activate search
+searchInput.addEventListener("input", filterList);
 
 // add new list
 const addNewList = function () {
@@ -82,3 +111,11 @@ const clearAll = function () {
   groceryList = [];
   updateDisplay();
 };
+
+// use keyboard events
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    addNewList();
+  }
+});
+addbtn.addEventListener("click", addNewList);

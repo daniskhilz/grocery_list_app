@@ -21,6 +21,7 @@ const updateDisplay = function () {
   if (groceryList.length === 0) {
     groceryListarr.innerHTML = '<div class="none">No items at the moment</div>';
     document.querySelector(".top").classList.add("hidden");
+    itemCount.forEach((item) => (item.textContent = "0 items"));
   } else {
     document.querySelector(".top").classList.remove("hidden");
     groceryListarr.innerHTML = "";
@@ -32,15 +33,15 @@ const updateDisplay = function () {
               <p>${item}</p>
               <button class="remove" onclick = "removeFn(${index})">Remove</button>`;
       groceryListarr.appendChild(itemHTML);
+      itemCount.forEach(
+        (item) =>
+          (item.textContent =
+            groceryList.length > 1 ? `${groceryList.length} items` : "1 item")
+      );
     }
   }
   searchInput.value = "";
   newInput.value = "";
-  itemCount.forEach(
-    (item) =>
-      (item.textContent =
-        groceryList.length > 1 ? `${groceryList.length} items` : "1 item")
-  );
 };
 
 updateDisplay();

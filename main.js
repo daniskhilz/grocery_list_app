@@ -119,4 +119,3 @@ document.addEventListener("keydown", function (e) {
     addNewList();
   }
 });
-addbtn.addEventListener("click", addNewList);

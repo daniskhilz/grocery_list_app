@@ -114,8 +114,24 @@ const clearAll = function () {
 };
 
 // use keyboard events
+// document.addEventListener("keydown", function (e) {
+//   if (e.key === "Enter") {
+//     if (newInput.value !== "") {
+//       addNewList();
+//     } else if (searchInput.value !== "") {
+//       filterList();
+//     }
+//   }
+// });
 document.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
-    addNewList();
+    if (newInput.value !== "") {
+      addNewList();
+    } else if (searchInput.value !== "") {
+      filterList();
+    }
+  } else if (e.key === "Escape") {
+    searchInput.value = "";
+    updateDisplay();
   }
 });
